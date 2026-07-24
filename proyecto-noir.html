@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secret Noir | Grafissto Studio</title>
+
+  <meta name="description" content="Proyecto Secret Noir de Grafissto Studio." />
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    body {
+      background-color: #050505;
+    }
+
+    .narrativa-section {
+      min-height: 100vh;
+      position: relative;
+      padding: var(--space-xl) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      margin-top: 60px;
+      /* espaciado para el navbar */
+    }
+
+    .narrativa-header {
+      max-width: 1400px;
+      margin: 0 auto var(--space-lg);
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .narrativa-title {
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: var(--space-sm);
+      font-family: var(--ff-display);
+      text-transform: uppercase;
+      color: var(--c-white);
+    }
+
+    .narrativa-desc {
+      font-size: 1.2rem;
+      max-width: 600px;
+      color: var(--c-grey-light);
+      line-height: 1.6;
+    }
+
+    .bg-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #050505 0%, transparent 20%, transparent 80%, #050505 100%);
+    }
+
+    .noir-chars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .char-card {
+      width: 300px;
+      text-align: center;
+    }
+
+    .char-card img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border: 1px solid rgba(217, 4, 41, 0.3);
+      filter: grayscale(100%) contrast(1.2);
+      transition: filter 0.5s, border-color 0.5s;
+    }
+
+    .char-card:hover img {
+      filter: grayscale(0%) contrast(1);
+      border-color: var(--c-red);
+    }
+
+    .char-name {
+      margin-top: 1rem;
+      font-family: var(--ff-ui);
+      letter-spacing: 0.1em;
+      color: var(--c-white);
+      text-transform: uppercase;
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border: 2px solid var(--c-red);
+      box-shadow: 0 0 30px rgba(217, 4, 41, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox.active img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: white;
+      font-size: 3rem;
+      cursor: pointer;
+      font-family: var(--ff-body);
+      line-height: 1;
+    }
+
+    /* Set pointer cursor on images */
+    .char-card img {
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .char-card {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ── CURSOR PERSONALIZADO ── -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo" id="nav-logo">
+      GRAFISSTO<span>.</span>STUDIO
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#vertientes">Vertientes</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#fundador">Fundador</a></li>
+      <li><a href="index.html#contacto" class="nav-cta">Hablemos</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <section class="narrativa-section" style="background: url('assets/img/comics/noir-bg.png') center/cover no-repeat;">
+      <div class="bg-video-overlay" style="background: rgba(5,5,5,0.85); z-index: 1;"></div>
+
+      <div class="narrativa-header reveal" style="text-align: center;">
+        <span class="proyecto-cat"
+          style="position:relative; left:0; top:0; display:inline-block; margin-bottom: 1rem; background: var(--c-white);">Thriller
+          Erótico</span>
+        <h2 class="narrativa-title">SECRET<br><span class="text-red">NOIR</span></h2>
+        <p class="narrativa-desc" style="margin: 0 auto;">
+          Es una novela grafica para adultos. Un grupo de chicas comparten una historia intima y secreta en una ciudad
+          nocturna donde los secretos
+          no deben salir a la luz, narrada a través de un elenco de personajes complejos y seductores.
+        </p>
+        <a href="index.html#proyectos" class="btn-primary" style="margin-top: 2rem; display: inline-flex;">Volver a
+          proyectos <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="narrativa-header reveal" style="text-align: center;">
+        <h2 class="narrativa-title">Personajes</h2>
+      </div>
+      <div class=" noir-chars reveal">
+        <div class="char-card">
+          <img src="assets/img/comics/abril.png" alt="Abril" loading="lazy">
+          <div class="char-name">ABRIL</div>
+        </div>
+        <div class="char-card">
+          <img src="assets/img/comics/mia.png" alt="Mia" loading="lazy">
+          <div class="char-name">MIA</div>
+        </div>
+        <div class="char-card">
+          <img src="assets/img/comics/sarah.png" alt="Sarah" loading="lazy">
+          <div class="char-name">SARAH</div>
+        </div>
+        <div class="char-card">
+          <img src="assets/img/comics/neka.png" alt="Neka" loading="lazy">
+          <div class="char-name">NEKA</div>
+        </div>
+        <div class="char-card">
+          <img src="assets/img/comics/ginger.png" alt="Ginger" loading="lazy">
+          <div class="char-name">GINGER</div>
+        </div>
+        <div class="char-card">
+          <img src="assets/img/comics/carolina.png" alt="Carolina" loading="lazy">
+          <div class="char-name">CAROLINA</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Element -->
+    <div class="lightbox" id="lightbox">
+      <span class="lightbox-close">&times;</span>
+      <img src="" alt="Zoom" id="lightbox-img">
+    </div>
+  </main>
+
+  <footer role="contentinfo" style="border-top: 1px solid #222; text-align: center; padding: 2rem;">
+    <p style="font-family: var(--ff-ui); font-size: 0.8rem; color: var(--c-grey-light);">© 2025 Grafissto Studio. Todos
+      los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const images = document.querySelectorAll('.char-card img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent scrolling
+      });
+    });
+
+    lightbox.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== SEO ===== -->
+  <title>Grafissto Studio | Creamos Mundos Digitales — Webs · Apps · Cómics · CDMX</title>
+  <meta name="description"
+    content="Estudio creativo en Ciudad de México. Diseñamos webs, apps y narrativas visuales que cruzan la frontera entre el cómic, la identidad de marca y la tecnología digital." />
+  <meta name="keywords"
+    content="estudio creativo CDMX, diseño web Mexico, comic digital, narrativa visual, branding, desarrollo web, Grafissto Studio, Alberto Varela" />
+  <meta name="author" content="Grafissto Studio — Alberto Varela" />
+  <link rel="canonical" href="https://grafissto.studio/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Grafissto Studio | Creamos Mundos Digitales" />
+  <meta property="og:description" content="Estudio creativo en CDMX. Webs, Apps, Cómics e Identidad Visual." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://grafissto.studio/" />
+  <meta property="og:image" content="https://grafissto.studio/assets/img/og-image.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Grafissto Studio | Creamos Mundos Digitales" />
+  <meta name="twitter:description" content="Estudio creativo en CDMX. Webs, Apps, Cómics e Identidad Visual." />
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["CreativeWork", "ProfessionalService"],
+    "name": "Grafissto Studio",
+    "description": "Estudio creativo en Ciudad de México. Diseño web, apps, narrativa visual y branding.",
+    "url": "https://grafissto.studio",
+    "foundingDate": "2020",
+    "founder": { "@type": "Person", "name": "Alberto Varela" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ── CURSOR PERSONALIZADO ── -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- ── LOADER ── -->
+  <div id="loader" role="status" aria-label="Cargando">
+    <div class="loader-logo">GRAFISSTO<span>.</span></div>
+    <div class="loader-bar">
+      <div class="loader-bar-fill" id="loader-fill"></div>
+    </div>
+    <div class="loader-num" id="loader-num">0%</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- NAV -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <nav id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="#hero" class="nav-logo" id="nav-logo">
+      GRAFISSTO<span>.</span>STUDIO
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#vertientes">Vertientes</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#fundador">Fundador</a></li>
+      <!--<li><a href="alberto-varela.html">CV</a></li>-->
+      <li><a href="#contacto" class="nav-cta">Hablemos</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- HERO -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero — Grafissto Studio">
+
+    <!-- ── VIDEO BACKGROUND (noche → dia → noche …) ── -->
+    <div class="hero-video-wrap" aria-hidden="true">
+      <video id="hero-vid-1" class="hero-video hero-video--active" src="assets/video/neoT_noche.mp4" muted playsinline
+        preload="auto"></video>
+      <video id="hero-vid-2" class="hero-video" src="assets/video/neoT_dia.mp4" muted playsinline
+        preload="auto"></video>
+    </div>
+    <!-- Oscurecer para que el texto sea legible -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <canvas id="hero-canvas" aria-hidden="true" style="display:none"></canvas>
+    <div class="panel-lines" aria-hidden="true"></div>
+
+    <div class="hero-content container">
+      <p class="hero-label" id="hero-label"><b> Estudio Creativo · CDMX ·</b></p>
+
+      <h1 class="hero-title" id="hero-title">
+        <span class="line"><span>CREAMOS</span></span>
+        <span class="line"><span>MUNDOS</span></span>
+        <span class="line">
+          <span class="glitch text-red" data-text="DIGITALES">DIGITALES</span>
+        </span>
+      </h1>
+
+      <div class="hero-sub" id="hero-sub">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Webs</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Apps</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Cómics</span>
+        <span class="dot" aria-hidden="true"></span>
+        <span>Identidad Visual</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll" id="hero-scroll" aria-hidden="true">
+      <div class="hero-scroll-line"></div>
+      <span class="hero-scroll-text">scroll</span>
+    </div>
+  </section>
+
+  <!-- Comic panel divider -->
+  <div class="comic-divider" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- VERTIENTES -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="vertientes" class="section" aria-labelledby="vertientes-heading">
+    <div class="container vertientes-header">
+      <div class="section-num">02</div>
+      <h2 id="vertientes-heading">NUESTRAS<br><span class="text-red">VERTIENTES</span></h2>
+      <p class="text-grey" style="margin-top:1rem;">
+        Tres mundos que convergen en un solo estudio. Cada proyecto vive en la intersección de estos universos.
+      </p>
+    </div>
+
+    <div class="vertientes-grid">
+
+      <!-- DIGITAL -->
+      <article class="vertiente-card" id="vertiente-digital" tabindex="0" aria-label="Vertiente Digital">
+        <span class="vertiente-num" aria-hidden="true">01</span>
+        <div class="ink-splatter" aria-hidden="true"></div>
+        <span class="vertiente-icon" aria-hidden="true">⟨/⟩</span>
+        <span class="vertiente-title">DIGITAL</span>
+        <p class="vertiente-desc">Interfaces que respiran. Sistemas que escalan. Experiencias que conectan.</p>
+        <ul class="vertiente-items">
+          <li>Sitios Web Premium</li>
+          <li>Aplicaciones Web</li>
+          <li>Sistemas Empresariales</li>
+          <li>UX / Diseño de Producto</li>
+          <li>Estrategia Digital</li>
+        </ul>
+      </article>
+
+      <!-- NARRATIVA -->
+      <article class="vertiente-card" id="vertiente-narrativa" tabindex="0" aria-label="Vertiente Narrativa">
+        <span class="vertiente-num" aria-hidden="true">02</span>
+        <div class="ink-splatter" aria-hidden="true"></div>
+        <span class="vertiente-icon" aria-hidden="true">💬</span>
+        <span class="vertiente-title">NARRATIVA</span>
+        <p class="vertiente-desc">Mundos que necesitan ser contados. Historias que trascienden el papel.</p>
+        <ul class="vertiente-items">
+          <li>NeoTenochtitlan</li>
+          <li>Noir Secret</li>
+          <li>Proyecto Cancún</li>
+          <li>Storyboarding</li>
+          <li>Guiones y Worldbuilding</li>
+        </ul>
+      </article>
+
+      <!-- MARCA -->
+      <article class="vertiente-card" id="vertiente-marca" tabindex="0" aria-label="Vertiente Marca">
+        <span class="vertiente-num" aria-hidden="true">03</span>
+        <div class="ink-splatter" aria-hidden="true"></div>
+        <span class="vertiente-icon" aria-hidden="true">◈</span>
+        <span class="vertiente-title">MARCA</span>
+        <p class="vertiente-desc">Identidades que permanecen. Marcas que tienen algo que decir.</p>
+        <ul class="vertiente-items">
+          <li>Identidad Visual</li>
+          <li>Branding Estratégico</li>
+          <li>Sistemas de Diseño</li>
+          <li>Motion &amp; Editorial</li>
+          <li>Consultoría Creativa</li>
+        </ul>
+      </article>
+
+    </div>
+  </section>
+
+  <div class="comic-divider" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- PROYECTOS DESTACADOS -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="proyectos" class="section" aria-labelledby="proyectos-heading">
+    <div class="section-header container" style="margin-bottom:3rem;">
+      <div>
+        <div class="section-num">03</div>
+        <h2 id="proyectos-heading">PROYECTOS<br><span class="text-red">DESTACADOS</span></h2>
+      </div>
+
+    </div>
+
+    <!-- Responsive Grid -->
+    <div class="proyectos-grid">
+
+      <!-- DIGITAL / DISEÑO DE PRODUCTO -->
+      <article class="proyecto-card" id="proyecto-banquet" tabindex="0">
+        <span class="proyecto-cat">Diseño de Producto</span>
+        <img src="assets/img/portfolio/banquet.png" alt="banquetPlanner" class="proyecto-img" loading="lazy" />
+
+        <div
+          style="display:none;background:linear-gradient(135deg,#0a0000,#1a0a00);aspect-ratio:4/3;align-items:center;justify-content:center;">
+          <span style="font-family:var(--ff-display);font-size:2rem;color:var(--c-red);">BANQUET PLANNER</span>
+
+        </div>
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">BANQUET PLANNER</h3>
+          <p class="proyecto-desc">Plataforma y sistema de administración para gestión de eventos.</p>
+          <a href="https://www.behance.net/gallery/243108809/Banquet-Planner-App" target="_blank"
+            class="proyecto-link">Ver detalles
+            <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <!-- WANDER WALLET -->
+      <article class="proyecto-card" id="proyecto-banquet" tabindex="0">
+        <span class="proyecto-cat">Diseño de Producto</span>
+        <img src="assets/img/portfolio/ww.png" alt="banquetPlanner" class="proyecto-img" loading="lazy" />
+        <div
+          style="display:none;background:linear-gradient(135deg,#0a0000,#1a0a00);aspect-ratio:4/3;align-items:center;justify-content:center;">
+          <span style="font-family:var(--ff-display);font-size:2rem;color:var(--c-red);">Wander Wallet</span>
+        </div>
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">Wander Wallet</h3>
+          <p class="proyecto-desc">App de cambio de divisas para viajeros.</p>
+          <a href="https://www.behance.net/gallery/227673283/Wander-Wallet-Travel-Finance-App-UXUI-Case-Study"
+            target="_blank" class="proyecto-link">Ver detalles
+            <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+
+      <article class="proyecto-card" id="proyecto-primetime" tabindex="0">
+        <span class="proyecto-cat">Diseño de Producto</span>
+        <img src="assets/img/portfolio/primeTime.png" alt="PrimeTime" class="proyecto-img" loading="lazy" />
+
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">PRIMETIME</h3>
+          <p class="proyecto-desc">Diseño de aplicación movil para tarjeta de debito internacional.</p>
+          <a href="https://www.behance.net/gallery/199250011/Debit-card-App" target="_blank" class="proyecto-link">Ver
+            detalles <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="proyecto-card" id="proyecto-grupofi" tabindex="0">
+        <span class="proyecto-cat">Diseño de Producto</span>
+        <img src="assets/img/portfolio/fi.png" alt="GrupoFi" class="proyecto-img" loading="lazy" />
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">GRUPO FI</h3>
+          <p class="proyecto-desc">Plataforma digital corporativa e intranet para gestion de pagos y créditos.</p>
+          <a href="https://www.behance.net/gallery/178340527/Tool-Fi-App" target="_blank" class="proyecto-link">Ver
+            detalles <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="proyecto-card" id="proyecto-civic" tabindex="0">
+        <span class="proyecto-cat">Diseño de Producto</span>
+        <img src="assets/img/portfolio/civic.png" alt="Civic Remote" class="proyecto-img" loading="lazy" />
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">CIVIC REMOTE</h3>
+          <p class="proyecto-desc">Aplicación y sistema de control remoto digital para automoviles.</p>
+          <a href="https://www.behance.net/gallery/181774889/App-for-car-controls" target="_blank"
+            class="proyecto-link">Ver
+            detalles <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <!-- NARRATIVA / UNIVERSOS -->
+      <article class="proyecto-card" id="proyecto-neo" tabindex="0">
+        <span class="proyecto-cat">Narrativa</span>
+        <img src="assets/img/comics/NeoTenochtitlan01.png" alt="Neo-Tenochtitlan" class="proyecto-img" loading="lazy" />
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">NEO-TENOCH&shy;TITLAN</h3>
+          <p class="proyecto-desc">Cyberpunk Mexicano: Un mundo futurista construido sobre las ruinas del México
+            antiguo.
+            Worldbuilding completo.</p>
+          <a href="proyecto-neotenochtitlan.html" target="_blank" class="proyecto-link">Ver detalles <span
+              aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="proyecto-card" id="proyecto-noir" tabindex="0">
+        <span class="proyecto-cat">Narrativa</span>
+        <img src="assets/img/comics/abril.png" alt="Secret Noir" class="proyecto-img" loading="lazy"
+          style="object-position: top center;" />
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">SECRET NOIR</h3>
+          <p class="proyecto-desc">Historia erótica para adultos. Un universo en expansión.</p>
+          <a href="proyecto-noir.html" target="_blank" class="proyecto-link">Ver detalles <span
+              aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <!--
+      <article class="proyecto-card" id="proyecto-cancun" tabindex="0">
+        <span class="proyecto-cat">Narrativa</span>
+        <img src="assets/img/comics/cancun-page.png" alt="Cancún" class="proyecto-img" loading="lazy" />
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">CANCÚN</h3>
+          <p class="proyecto-desc">Aventura de acción en el Caribe mexicano. Un universo en expansión.</p>
+          <a href="proyecto-cancun.html" target="_blank" class="proyecto-link">Ver detalles <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+-->
+      <!-- MARCA / BRANDING -->
+      <!--
+      <article class="proyecto-card" id="proyecto-infernus" tabindex="0">
+        <span class="proyecto-cat">Marca</span>
+        <div class="proyecto-img"
+          style="background:linear-gradient(135deg,#1a0000,#2d0012);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;">
+          <span
+            style="font-family:var(--ff-display);font-size:3rem;color:var(--c-red);letter-spacing:0.1em;">INFERNUS</span>
+        </div>
+        <div class="proyecto-info">
+          <h3 class="proyecto-title">INFERNUS</h3>
+          <p class="proyecto-desc">Creación de marca e identidad corporativa. Logotipo, paleta cromática y manual de
+            marca completo.</p>
+          <a href="proyecto-infernus.html" class="proyecto-link">Ver detalles <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+-->
+    </div>
+  </section>
+
+  <div class="comic-divider" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FUNDADOR PREVIEW -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="fundador" class="section" aria-labelledby="fundador-heading">
+    <div class="fundador-wrap">
+      <!-- Imagen -->
+      <div class="fundador-img-wrap reveal" id="fundador-img-wrap">
+        <img src="assets/img/founder/alberto-varela.jpg" alt="Alberto Varela — Fundador de Grafissto Studio"
+          class="fundador-img" loading="lazy" width="480" height="640" />
+      </div>
+
+      <!-- Contenido -->
+      <div class="fundador-content">
+        <div class="section-num">04</div>
+        <span class="fundador-role reveal">FUNDADOR</span>
+        <h2 class="fundador-name reveal" id="fundador-heading">
+          ALBERTO<br><span class="text-red">VARELA</span>
+        </h2>
+        <p class="fundador-tagline reveal">
+
+          Egresado de la Facultad de Artes y Diseño de la Universidad Nacional Autónoma de México (UNAM)
+          <br> <br>
+          Fundé Grafissto Studio en 2020 para construir un espacio donde la narrativa visual, el diseño de experiencias
+          digitales y la identidad de marca coexistieran sin fronteras. Cada proyecto es único e interdisciplinario.
+        </p>
+        <div class="fundador-pills reveal">
+          <span class="pill">UX Design</span>
+          <span class="pill">Ilustración</span>
+          <span class="pill">Desarrollo Web</span>
+          <span class="pill">Storyboarding</span>
+          <span class="pill">Narrativa</span>
+          <span class="pill">Branding & Diseño Gráfico</span>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;" class="reveal">
+          <a href="alberto-varela.html" class="btn-primary" id="btn-cv">
+            <span>Ver perfil completo</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a href="#contacto" class="btn-primary"
+            style="background:transparent;border:1px solid var(--c-red);color:var(--c-red);">
+            <span>Contactar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="comic-divider" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- CONTACTO -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <section id="contacto" class="section" aria-labelledby="contacto-heading">
+    <div class="contacto-wrap">
+      <div class="section-num" style="justify-content:center;">05</div>
+      <h2 class="contacto-title reveal" id="contacto-heading">HABLE&shy;MOS</h2>
+      <p class="contacto-sub reveal">
+        ¿Tienes un proyecto? ¿Buscas un colaborador creativo?<br>Cuéntame. La primera conversación es siempre la más
+        importante.
+      </p>
+
+      <div class="reveal" style="text-align: center; margin: 4rem 0;">
+        <p style="font-size: 1.2rem; color: var(--c-white); font-family: var(--ff-body);">
+          Envíame un mensaje al correo <br>
+          <a href="mailto:grafissto@gmail.com"
+            style="display: inline-block; margin-top: 1rem; color: var(--c-red); text-decoration: none; font-family: var(--ff-display); font-size: 2.5rem; letter-spacing: 0.05em; transition: color var(--dur-fast);">grafissto@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="contacto-socials reveal">
+        <a href="https://www.behance.net/alberto-varela" target="_blank" rel="noopener noreferrer" class="social-link"
+          aria-label="Behance">
+          <span class="social-icon" aria-hidden="true">⬡</span> Behance
+        </a>
+        <a href="https://www.linkedin.com/company/grafisstostudios" target="_blank" rel="noopener noreferrer"
+          class="social-link" aria-label="LinkedIn">
+          <span class="social-icon" aria-hidden="true">⬡</span> LinkedIn
+        </a>
+        <a href="https://github.com/BetoUXDesigner" target="_blank" rel="noopener noreferrer" class="social-link"
+          aria-label="GitHub">
+          <span class="social-icon" aria-hidden="true">⬡</span> GitHub
+        </a>
+        <a href="mailto:grafissto@gmail.com" class="social-link" aria-label="Email">
+          <span class="social-icon" aria-hidden="true">⬡</span> grafissto@gmail.com
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <p>© 2025 Grafissto Studio. Todos los derechos reservados.</p>
+    <p>Diseño &amp; Desarrollo: <a href="alberto-varela.html">Alberto Varela</a></p>
+    <p>
+      <a href="Avisodeprivacidad.html">Aviso de Privacidad</a>
+    </p>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- SCRIPTS — CDN (todo cliente, sin build) -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+  <!-- App JS -->
+  <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/panels.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+</body>
+
+</html>

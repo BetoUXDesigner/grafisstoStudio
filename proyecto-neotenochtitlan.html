@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neo-Tenochtitlan | Grafissto Studio</title>
+
+  <meta name="description" content="Proyecto Neo-Tenochtitlan de Grafissto Studio." />
+
+  <!-- Preload fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&family=Space+Grotesk:wght@700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    body {
+      background-color: #050505;
+    }
+
+    .narrativa-section {
+      min-height: 100vh;
+      position: relative;
+      padding: var(--space-xl) var(--space-md);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      margin-top: 60px;
+      /* espaciado para el navbar */
+    }
+
+    .narrativa-header {
+      max-width: 1400px;
+      margin: 0 auto var(--space-lg);
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .narrativa-title {
+      font-size: clamp(3rem, 8vw, 8rem);
+      line-height: 0.9;
+      margin-bottom: var(--space-sm);
+      font-family: var(--ff-display);
+      text-transform: uppercase;
+      color: var(--c-white);
+    }
+
+    .narrativa-desc {
+      font-size: 1.2rem;
+      max-width: ;
+      color: var(--c-grey-light);
+      line-height: 1.6;
+    }
+
+    .bg-video-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .bg-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.3;
+    }
+
+    .bg-video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #050505 0%, transparent 20%, transparent 80%, #050505 100%);
+    }
+
+    .art-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .art-item {
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--c-panel);
+      transition: transform var(--dur-med), border-color var(--dur-med);
+    }
+
+    .art-item:hover {
+      border-color: var(--c-red);
+      transform: translateY(-5px);
+    }
+
+    .art-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-out);
+    }
+
+    .art-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .neo-hero {
+      grid-column: 1 / -1;
+      aspect-ratio: 21/9;
+    }
+
+    .neo-col-1 {
+      grid-column: 1 / 7;
+      aspect-ratio: 4/5;
+    }
+
+    .neo-col-2 {
+      grid-column: 7 / -1;
+      aspect-ratio: 4/5;
+    }
+
+    @media (max-width: 768px) {
+
+      .neo-col-1,
+      .neo-col-2 {
+        grid-column: 1 / -1;
+      }
+
+      .neo-hero {
+        aspect-ratio: 16/9;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ── CURSOR PERSONALIZADO ── -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-follower" id="cursor-follower" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="index.html" class="nav-logo" id="nav-logo">
+      GRAFISSTO<span>.</span>STUDIO
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#vertientes">Vertientes</a></li>
+      <li><a href="index.html#proyectos">Proyectos</a></li>
+      <li><a href="index.html#fundador">Fundador</a></li>
+      <li><a href="index.html#contacto" class="nav-cta">Hablemos</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main>
+    <section class="narrativa-section">
+
+
+      <div class="narrativa-header reveal">
+        <span class="proyecto-cat"
+          style="position:relative; left:0; top:0; display:inline-block; margin-bottom: 1rem;">Cyberpunk
+          Prehispánico</span>
+        <h1 class="narrativa-title">NEO-<br><span class="text-red">TENOCHTITLAN</span></h1>
+        <p class="narrativa-desc">
+          Neo Tenochtitlán es una megaciudad devorada por el neón, las drogas sintéticas y la desigualdad. Un lugar
+          donde humanos, clones y robots conviven en una tensión constante a punto de romperse.
+
+          Para el detective Samuel Podbielski y su veterano compañero Arturo Fernández, debería ser un lunes más. Pero
+          todo cambia cuando son llamados a un departamento en el sector 7. El escenario es una pesadilla: una mujer
+          joven, embarazada es encontrada brutalmente asesinada. El detalle más aterrador: el feto ha sido extraído a la
+          fuerza y no hay rastro de él.
+
+          La única pista es un repartidor de comida que fue visto entrando al edificio. Pero cuando los detectives lo
+          encuentran, el sospechoso es un clon con memorias falsas implantadas.
+
+          Podbielski y Fernández se dan cuenta de algo escalofriante: el asesino no actuó solo. Detrás de este crimen
+          hay una organización con fines siniestros que trata de controlar el destino de la humanidad.
+        </p>
+        <a href="index.html#proyectos" class="btn-primary" style="margin-top: 2rem; display: inline-flex;">Volver a
+          proyectos <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="art-grid reveal">
+        <!-- Video Principal -->
+        <div class="art-item neo-hero">
+          <video src="assets/img/comics/neoT_noche.mp4" autoplay loop muted playsinline
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
+
+        <!-- Imágenes de Cómic -->
+        <div class="art-item neo-col-1">
+          <img src="assets/img/comics/01.png" alt="Página de cómic 1" loading="lazy">
+        </div>
+        <div class="art-item neo-col-2">
+          <img src="assets/img/comics/02.png" alt="Página de cómic 2" loading="lazy">
+        </div>
+
+        <!-- Texto Descriptivo -->
+        <div class="art-item neo-hero"
+          style="background: var(--c-panel); padding: 3rem; display: flex; align-items: center; justify-content: center; text-align: center;">
+          <p
+            style="color: var(--c-white); font-size: 1.25rem; font-family: var(--ff-body); max-width: 800px; line-height: 1.6;">
+            En este universo, el imperio azteca nunca cayó, evolucionando hacia una megalópolis distópica gobernada por
+            corporaciones y antiguos dioses cibernéticos. Una mezcla única de estética prehispánica y tecnología
+            cyberpunk.
+
+          </p>
+        </div>
+
+        <!-- Concept Art -->
+        <div class="art-item neo-col-1">
+          <img src="assets/img/comics/neo04.png" alt="Concept Art" loading="lazy">
+        </div>
+        <div class="art-item neo-col-2">
+          <img src="assets/img/comics/neo05.png" alt="Concept Art" loading="lazy">
+        </div>
+
+        <!-- Video Día -->
+        <div class="art-item neo-hero">
+          <video src="assets/img/comics/neoT_dia.mp4" autoplay loop muted playsinline
+            style="width: 100%; height: 100%; object-fit: cover;"></video>
+        </div>
+
+        <!-- Arte Principal (Zoom out original) -->
+        <div class="art-item neo-hero">
+          <img src="assets/img/comics/neo03.png" alt="Concept Art Neo Tenochtitlan" loading="lazy"
+            style="object-position: top center;">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo" style="border-top: 1px solid #222; text-align: center; padding: 2rem;">
+    <p style="font-family: var(--ff-ui); font-size: 0.8rem; color: var(--c-grey-light);">© 2025 Grafissto Studio. Todos
+      los derechos reservados.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
